@@ -22,7 +22,7 @@ function App() {
   }
   return (
     <div className="App">
-      <div className="app-container rounded p-4 bg-light">
+      <div className="app-container rounded m-2 p-4 bg-light">
         <form className="d-flex" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -33,7 +33,7 @@ function App() {
           ></input>
           <input type="submit" className="btn btn-dark" value="Add"></input>
         </form>
-        <List />
+        <List items={items} />
       </div>
     </div>
   );
