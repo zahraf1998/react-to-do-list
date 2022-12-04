@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import List from "./List";
 import "./App.css";
 
 function App() {
-  const [items, setItems] = useState([]);
+  const initialItems = JSON.parse(localStorage.getItem("todoItems")) || [];
+  const [items, setItems] = useState(initialItems);
   const [input, setInput] = useState("");
   const [editedItem, setEditedItem] = useState(null);
 
@@ -42,6 +43,10 @@ function App() {
 
     setInput("");
   };
+
+  useEffect(() => {
+    localStorage.setItem("todoItems", JSON.stringify(items));
+  }, [items]);
 
   return (
     <div className="App">
